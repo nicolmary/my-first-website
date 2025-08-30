@@ -1,0 +1,19 @@
+body {
+    background-color: lightblue;
+}
+
+h1 {
+    color: darkblue;
+}
+
+table{
+    margin: 5px auto;
+    border-collapse: collapse;
+    width: 90%;
+    }
+td, th {
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+    }
+    
