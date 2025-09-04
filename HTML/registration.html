@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="regForm">
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Enter your Email"><br>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <button type="button" id="jqToggle">Show</button><br>
+
+    <label for="pwd2">Confirm Password:</label>
+    <input type="password" id="pwd2"><br>
+
+    <label>Gender:</label>
+    <input type="radio" name="gender" value="male"> Male
+    <input type="radio" name="gender" value="female"> Female<br>
+
+    <label>Interests:</label>
+    <input type="checkbox" name="subscribe"> Subscribe<br>
+
+    <label for="country">Country:</label>
+    <select id="country">
+      <option value="ph">Philippines</option>
+      <option value="us">United States</option>
+    </select><br>
+
+    <label for="charbox">Bio:</label>
+    <textarea id="charbox" rows="4"></textarea>
+    <small id="count">0 characters</small><br>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <script>
+    $("#jqToggle").click(function(){
+      let pwd = $("#pwd");
+      pwd.attr("type", pwd.attr("type")==="password" ? "text":"password");
+    });
+
+    document.getElementById('charbox').addEventListener('input', function() {
+      document.getElementById('count').textContent = this.value.length + " characters";
+    });
+
+    $("#regForm").submit(function(e){
+      let valid = true;
+
+      if($("#username").val()===""){ $("#username").addClass("error"); valid=false; } else { $("#username").removeClass("error"); }
+      if($("#email").val()===""){ $("#email").addClass("error"); valid=false; } else { $("#email").removeClass("error"); }
+      if($("#pwd").val()===""){ $("#pwd").addClass("error"); valid=false; } else { $("#pwd").removeClass("error"); }
+      if($("#pwd2").val()===""){ $("#pwd2").addClass("error"); valid=false; } else { $("#pwd2").removeClass("error"); }
+
+      if(!valid){
+        alert("All required fields must be filled!");
+        e.preventDefault();
+      }
+    });
+  </script>
+</section>
+
+
+</body>
+</html>
